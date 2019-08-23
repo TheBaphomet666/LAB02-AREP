@@ -1,4 +1,5 @@
-package com.arep.calculator;
+package com.arep.calculators;
+
 
 import com.arep.model.LinkedList;
 import com.arep.model.Node;
@@ -14,22 +15,10 @@ public class Calculator {
 
     /**
      * Calculates the Mean and the std.dev
-     * @param path path of the file to read
+     * @param list list of the numbers
      * @return mean and std.dev in a map
      */
-    public static  HashMap<String,Double> calculate(String path){
-        LinkedList list = new LinkedList();
-        BufferedReader br ;
-        try {
-            br = new BufferedReader(new FileReader(path));
-            String line;
-            while ((line = br.readLine()) != null) {
-                list.add(new Node<Double>(Double.parseDouble(line)));
-            }
-            br.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public static HashMap<String,Double> calculate(LinkedList list){
 
         HashMap<String,Double> map = new HashMap<String, Double>();
         map.put("Mean",mean(list));
