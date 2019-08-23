@@ -4,7 +4,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         function callApi() {
-            const apiURL = ((window.location.hostname === "localhost") ? "http://localhost:9074" : "https://myuniapp-back.herokuapp.com");
+            const apiURL = ((window.location.hostname === "localhost") ? "http://localhost:9074" : "https://calculator-arep.herokuapp.com");
             axios.post(apiURL+'/calculate', {
                     values: toList()
                 }).then(function f (res){
