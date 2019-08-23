@@ -20,12 +20,13 @@ public class Server {
         post("/calculate", (req, res) -> {
             JsonObject jsonObject = new JsonParser().parse(req.body()).getAsJsonObject();
             res.type("application/json");
+            System.out.println("Received"+jsonObject);
             return JsonAdapter.adapt(Calculator.calculate(JsonAdapter.adapt(jsonObject)));
         });
 
         get("/operations", (req, res) -> "std.dev\nMean");
 
-        get("/calculator", (req, res) -> {
+        get("/", (req, res) -> {
 
             String page = FileUtils.readFileToString(new File("src/main/resources/index.html"), StandardCharsets.UTF_8);
             return page;
